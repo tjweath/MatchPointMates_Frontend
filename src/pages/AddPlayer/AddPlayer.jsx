@@ -79,6 +79,7 @@ export default function AddPlayer() {
     <div>
       <div className="add-player-container">
         <h1 className='title'>Match Point Mates</h1>
+        <div className="container">
         <h2>Add New Player</h2>
         <form className='add-player' onSubmit={handleSubmit}>
           <label>
@@ -105,6 +106,7 @@ export default function AddPlayer() {
         </form>
       </div>
       {showPopup && <div className="popup">New player added!</div>}
+    </div>
     </div>
   );
 }

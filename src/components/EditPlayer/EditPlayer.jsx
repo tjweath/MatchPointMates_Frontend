@@ -52,24 +52,6 @@ function EditPlayer() {
     return <div>Loading...</div>;
   }
 
-//   return (
-//     <div className="container">
-//       <h1>Edit Player</h1>
-//       <form onSubmit={handleSubmit}>
-//         <div className="mb-3">
-//           <label htmlFor="name" className="form-label">Player Name </label>
-//           <input type="text" id="name" name="name" value={player.name || ''} onChange={handleInputChange} className="form-control" />
-//         </div>
-//         <div className="mb-3">
-//           <label htmlFor="country" className="form-label">Country </label>
-//           <input type="text" id="country" name="country" value={player.country || ''} onChange={handleInputChange} className="form-control" />
-//         </div>
-//         <button type="submit" className="btn btn-primary">Save</button>
-//       </form>
-//     </div>
-//   );
-// }
-
 return (
   <div className="container">
     <h1>Edit Player</h1>

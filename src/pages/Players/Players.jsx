@@ -10,7 +10,8 @@ function Players() {
   useEffect(() => {
     axios.get('http://localhost:8000/players/')
       .then(response => {
-        setPlayers(response.data.reverse());
+        const reversedPlayers = response.data.reverse();
+        setPlayers(reversedPlayers);
         setLoading(false);
       })
       .catch(error => {

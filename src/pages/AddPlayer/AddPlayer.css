@@ -1,41 +1,40 @@
-/* Styles for the form container */
 .add-player-container {
     background-color: #ffffff; /* Background color of the box */
-    border: 1px solid #cccccc; /* Border of the box */
-    border-radius: 5px; /* Rounded corners of the box */
+    border: 2px solid black; /* Border of the box */
+    border-radius: 10px; /* Rounded corners of the box */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle depth effect */
     padding: 20px; /* Padding inside the box */
     max-width: 800px;
     margin: 0 auto;
-  }
-  
-  /* Rest of your styles remain the same */
-  .title {
+}
+
+/* Additional styles from your existing CSS */
+.title {
     color: black;
     background-color: #40c057;
-  }
-  
-  .add-player {
+}
+
+.add-player {
     display: flex;
     flex-direction: column; /* Display items in a column */
     align-items: center; /* Center items horizontally */
-  }
-  
-  .input-label {
+}
+
+.input-label {
     color: white; /* Label text color */
     margin-bottom: 10px; /* Spacing between input fields */
-  }
-  
-  .input-group input {
+}
+
+.input-group input {
     width: 100%; /* Set input fields to full width */
     padding: 10px; /* Add padding to input fields */
     margin-top: 5px; /* Spacing between input fields */
     border: 1px solid #ccc; /* Add border to input fields */
     border-radius: 5px; /* Round corners of input fields */
     background-color: #fff; /* Input field background color */
-  }
-  
-  button {
+}
+
+button {
     padding: 10px 20px; /* Add padding to button */
     margin-top: 10px; /* Spacing between button and input fields */
     border: none; /* Remove button border */
@@ -43,13 +42,13 @@
     background-color: #40c057; /* Button background color */
     color: white; /* Button text color */
     cursor: pointer; /* Change cursor to pointer on hover */
-  }
-  
-  button:hover {
-    background-color: #52c41a; /* Change button background color on hover */
-  }
+}
 
-  .popup {
+button:hover {
+    background-color: #52c41a; /* Change button background color on hover */
+}
+
+.popup {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -58,11 +57,8 @@
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  
-  .popup.hidden {
+}
+
+.popup.hidden {
     display: none;
-  }
-  
-  
+}
