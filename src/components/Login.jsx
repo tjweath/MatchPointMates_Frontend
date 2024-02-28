@@ -1,6 +1,8 @@
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useRef } from "react";
+import { useState } from "react";
+
 
 export default function Login() {
   const userRef = useRef();
@@ -29,20 +31,25 @@ export default function Login() {
     axios.defaults.headers.common["Authorization"] = `Bearer ${data.access}`;
     window.location.href = "/players"
   }
+
+  
   return (
     <Form onSubmit={handleSubmit}>
+      <h1 className='title'>🎾 Match Point Mates 🎾</h1>
+      <div className="loginform" >
       <Form.Group>
-        <Form.Label>Username</Form.Label>
+        <Form.Label >Username </Form.Label>
         <Form.Control type="text" ref={userRef} required />
       </Form.Group>
       <Form.Group>
-        <Form.Label>Password</Form.Label>
+        <Form.Label>Password </Form.Label>
         <Form.Control type="password" ref={pwdRef} required />
       </Form.Group>
       <div className="mt-2">
         <Button type="submit" variant="primary">
           Login
         </Button>
+      </div>
       </div>
     </Form>
   );

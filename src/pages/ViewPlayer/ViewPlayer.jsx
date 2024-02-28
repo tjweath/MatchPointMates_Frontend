@@ -9,7 +9,7 @@ export default function ViewPlayer() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}`)
+    axios.get(`http://localhost:8000/players/${playerId}`)
       .then(response => {
         setLoading(false);
       })
@@ -25,12 +25,15 @@ export default function ViewPlayer() {
 
   return (
     <div>
-      <h1 className='title'>Match Point Mates</h1>
+      <h1 className='title'>🎾 Match Point Mates 🎾</h1>
+      
+      <div className='playerdetails'>
       <h2>Player Details</h2>
       <PlayerCard playerId={playerId} />
       <div>
         <Link to={`/update-player/${playerId}`}><button>Edit</button></Link>
         <Link to={`/delete-player/${playerId}`}><button>Delete</button></Link>
+      </div>
       </div>
     </div>
   );

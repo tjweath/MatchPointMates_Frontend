@@ -30,22 +30,25 @@ export default function Signup() {
       }
   return (
     <Form onSubmit={handleSubmit}>
+      <h1 className='title'>🎾 Match Point Mates 🎾</h1>
+      <div className="signup" >
       <Form.Group>
-        <Form.Label>Username</Form.Label>
+        <Form.Label>Username </Form.Label>
         <Form.Control type="text" ref={userRef} required />
       </Form.Group>
       <Form.Group>
-        <Form.Label>Email</Form.Label>
+        <Form.Label>Email </Form.Label>
         <Form.Control type="email" ref={emailRef} required />
       </Form.Group>
       <Form.Group>
-        <Form.Label>Password</Form.Label>
+        <Form.Label>Password </Form.Label>
         <Form.Control type="password" ref={pwdRef} required />
       </Form.Group>
       <div className="mt-2">
         <Button type="submit" variant="primary">
           Sign up!
         </Button>
+      </div>
       </div>
     </Form>
   )

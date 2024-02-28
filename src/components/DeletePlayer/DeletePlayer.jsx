@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
+import './DeletePlayer.css';
 
 function DeletePlayer() {
   const { playerId } = useParams(); 
@@ -21,11 +22,13 @@ function DeletePlayer() {
 
   return (
     <div>
+      <div className='delete'>
       <h1>Delete Player</h1>
       <p>Are you sure you want to delete this player?</p>
       <button onClick={handleDelete} disabled={loading}>
         {loading ? 'Deleting...' : 'Delete'}
       </button>
+      </div>
     </div>
   );
 }

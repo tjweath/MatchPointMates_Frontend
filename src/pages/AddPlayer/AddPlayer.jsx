@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import { currentUser } from '../../lib/CurrentUser';
 
 export default function AddPlayer() {
   const [name, setName] = useState('');
@@ -7,7 +9,13 @@ export default function AddPlayer() {
   const [error, setError] = useState(null);
   const [csrfToken, setCsrfToken] = useState('');
   const [showPopup, setShowPopup] = useState(false);
-  const navigate = useNavigate(); // Use useNavigate for navigation
+  const navigate = useNavigate();
+
+  const newPlayer = {
+    player_name: name.trim(),
+    player_country: country.trim(),
+    owner: currentUser().user_id
+  }
 
   useEffect(() => {
     // Fetch CSRF token from cookies
@@ -44,31 +52,18 @@ export default function AddPlayer() {
     event.preventDefault();
     console.log('Form submitted');
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKENDURL}/players/`, {
-        method: 'POST',
+      const token = localStorage.getItem('access_token')
+      const response = await axios.post(`${process.env.REACT_APP_BACKENDURL}/players/`, newPlayer,  {
         headers: {
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
-          'X-CSRFToken': csrfToken,
+          // 'X-CSRFToken': csrfToken,
         },
-        body: JSON.stringify({
-          player_name: name.trim(),
-          player_country: country.trim(),
-        }),
+    
       });
-      if (!response.ok) {
-        throw new Error('Failed to add player');
-      }
-      const data = await response.json();
-      onAddPlayer(data);
-      setName('');
-      setCountry('');
-      console.log("Show popup:", showPopup);
-      setShowPopup(true);
-      setTimeout(() => {
-        setShowPopup(false);
-        console.log('Navigating to /players');
-        navigate('/players'); 
-      }, 1000);
+    
+      navigate('/players')
+
     } catch (error) {
       console.error('Error occurred:', error);
       setError(error.message);
@@ -78,28 +73,19 @@ export default function AddPlayer() {
   return (
     <div>
       <div className="add-player-container">
-        <h1 className='title'>Match Point Mates</h1>
+        <h1 className='title'>🎾 Match Point Mates 🎾</h1>
         <div className="container">
         <h2>Add New Player</h2>
         <form className='add-player' onSubmit={handleSubmit}>
           <label>
             Player Name 
             <input
-              type="text" 
-              value={name}
-              onChange={handleNameChange}
-              required
-            />
+              type="text" value={name} onChange={handleNameChange}required/>
           </label>
           <br />
           <label>
             Country
-            <input
-              type="text"
-              value={country}
-              onChange={handleCountryChange}
-              required
-            />
+            <input type="text"value={country}onChange={handleCountryChange}required/>
           </label>
           <br />
           <button type="submit">Save Player</button>

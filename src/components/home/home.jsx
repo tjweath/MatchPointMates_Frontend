@@ -18,7 +18,7 @@ const Home = () => {
     return (
         <div>
             <div className='homepage'/>
-            <h1 className='title'>Match Point Mates</h1>
+            <h1 className='title'>🎾 Match Point Mates 🎾</h1>
             <p>This is the home page. User not logged in</p>
         </div>
     );

@@ -8,17 +8,31 @@ function Players() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BACKENDURL}/players/`)
+    fetchPlayers();
+  }, []);
+
+  const fetchPlayers = () => {
+    const token = localStorage.getItem('access_token')
+    axios.get(`${process.env.REACT_APP_BACKENDURL}/players/`,{
+      headers:{
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then(response => {
-        const reversedPlayers = response.data.reverse();
-        setPlayers(reversedPlayers);
+        console.log(response.data)
+        setPlayers(response.data.reverse());
         setLoading(false);
       })
       .catch(error => {
         console.error('Error fetching players:', error);
         setLoading(false);
       });
-  }, []);
+  };
+
+  const handleNewPlayer = (newPlayer) => {
+    // Prepend the new player to the existing list of players
+    setPlayers([newPlayer, ...players]);
+  };
   
 
   if (loading) {
@@ -27,7 +41,7 @@ function Players() {
 
   return (
     <div className='players'>
-      <h1 className='title'>Match Point Mates</h1>
+      <h1 className='title'>🎾 Match Point Mates 🎾</h1>
       <div className='players-container'>
         {players.map(player => (
           <Link key={player.id} to={`/players/${player.id}`} className='player-link'>
