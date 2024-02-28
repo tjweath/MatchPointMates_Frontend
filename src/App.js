@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar.jsx';
 import Home from './components/home/home.jsx';
@@ -10,8 +9,11 @@ import EditPlayerPage from './pages/EditPlayerPage/EditPlayerPage.jsx';
 import DeletePlayer from './components/DeletePlayer/DeletePlayer.jsx';
 import EditPlayer from './components/EditPlayer/EditPlayer.jsx';
 
+import Login from "./components/Login";
+import Logout from "./components/Logout";
+import Signup from "./components/Signup";
+
 import './App.css';
-axios.defaults.baseURL = 'http://localhost:8000'
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
       <div className="App">
         <NavBar />
         <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/home" element={<Home />} />
           <Route path="/players" element={<Players />} />
           <Route path="/players/:playerId" element={<ViewPlayer />} />

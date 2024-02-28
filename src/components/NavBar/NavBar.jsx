@@ -15,6 +15,15 @@ export default function NavBar() {
           <a className="nav-link link-style" href="/add-player">
             Add Player
           </a>
+          <a className="nav-link link-style" href="/login">
+            Login
+          </a>
+          <a className="nav-link link-style" href="/logout">
+            Logout
+          </a>
+          <a className="nav-link link-style" href="/signup">
+            Signup
+          </a>
         </div>
       </div>
     </nav>

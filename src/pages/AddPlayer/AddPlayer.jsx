@@ -44,7 +44,7 @@ export default function AddPlayer() {
     event.preventDefault();
     console.log('Form submitted');
     try {
-      const response = await fetch('http://localhost:8000/players/', {
+      const response = await fetch(`${process.env.REACT_APP_BACKENDURL}/players/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

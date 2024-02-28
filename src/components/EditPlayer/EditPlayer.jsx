@@ -13,7 +13,7 @@ function EditPlayer() {
     const fetchPlayer = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:8000/players/${playerId}/`);
+        const response = await axios.get(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}/`);
         setPlayer(response.data);
         setLoading(false);
       } catch (error) {
@@ -38,7 +38,7 @@ function EditPlayer() {
     console.log('Form submitted');
     setLoading(true);
     try {
-      await axios.put(`http://localhost:8000/players/${playerId}/`, player);
+      await axios.put(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}/`, player);
       console.log('Player data:', player);
       setLoading(false);
       navigate(`/players/${playerId}`);

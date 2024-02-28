@@ -9,7 +9,7 @@ export default function ViewPlayer() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`http://localhost:8000/players/${playerId}`)
+    axios.get(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}`)
       .then(response => {
         setLoading(false);
       })

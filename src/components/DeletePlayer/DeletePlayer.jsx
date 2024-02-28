@@ -10,7 +10,7 @@ function DeletePlayer() {
   const handleDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:8000/players/${playerId}`);
+      await axios.delete(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}`);
       setLoading(false);
       navigate('/players'); 
     } catch (error) {

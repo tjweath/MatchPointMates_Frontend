@@ -4,7 +4,7 @@ import './home.css';
 
 const Home = () => {
     useEffect(() => {
-        axios.get('http://localhost:8000/home/')
+        axios.get(`${process.env.REACT_APP_BACKENDURL}/home/`)
             .then(response => {
                 console.log(response.data);
                 // Do something with the data, e.g., set state

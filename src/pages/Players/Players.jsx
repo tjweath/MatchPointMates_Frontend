@@ -8,7 +8,7 @@ function Players() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/players/')
+    axios.get(`${process.env.REACT_APP_BACKENDURL}/players/`)
       .then(response => {
         const reversedPlayers = response.data.reverse();
         setPlayers(reversedPlayers);
