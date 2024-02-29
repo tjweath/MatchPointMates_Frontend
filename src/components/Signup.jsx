@@ -17,7 +17,7 @@ export default function Signup() {
         };
 
     
-        const { data } = await axios.post(
+        const { } = await axios.post(
           `${process.env.REACT_APP_BACKENDURL}/signup/`,
           user,
           {

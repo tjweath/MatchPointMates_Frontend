@@ -26,9 +26,9 @@ const Home = () => {
                     {playerData ? (
                         playerData.result.map((player, idx) => (
                             <div key={idx}>
-                            <p>Player Name: {player.player_name}</p>
-                            <p>Player Country: {player.player_country}</p>
-                            <img src={player.player_logo} />
+                            <p>{player.player_name} | {player.player_country}</p>
+                            <p></p>
+                            <img src={player.player_logo} alt="Player Logo"/>
                         </div>
                         ))
                         

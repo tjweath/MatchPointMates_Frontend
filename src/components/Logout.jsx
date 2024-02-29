@@ -28,6 +28,6 @@ export default function Logout() {
         console.log("Logout error", e);
       }
     })();
-  }, []);
+  }, );
   return <div></div>;
 }
