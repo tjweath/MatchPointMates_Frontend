@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import PlayerCard from '../../components/PlayerCard/PlayerCard.jsx'; // Assuming PlayerCard is in the same directory
+import PlayerCard from '../../components/PlayerCard/PlayerCard.jsx';
+import "./ViewPlayer.css"
 
 export default function ViewPlayer() {
   const { playerId } = useParams();

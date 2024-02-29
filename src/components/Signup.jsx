@@ -1,6 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useRef } from "react";
+import "./Signup.css"
 
 
 export default function Signup() {

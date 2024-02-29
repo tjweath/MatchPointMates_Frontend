@@ -1,4 +1,4 @@
-.player-card {
+.signup {
     border: 2px solid black; 
     box-sizing: border-box !important;
     border-radius: 10px;
@@ -6,10 +6,8 @@
     padding: 10px;
     margin-bottom: 5vmin;
     max-width: 400px; 
-    min-height: 30px;
     align-items: center !important;
     background-color: #edf4f2; 
-    height: 130px;
     position: relative; 
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1) !important; 
   }
