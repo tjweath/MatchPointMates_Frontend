@@ -7,15 +7,22 @@ const PlayerCard = ({ playerId }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}`)
-      .then(response => {
-        setPlayer(response.data);
-        setLoading(false);
-      })
+    const token = localStorage.getItem('access_token')
+    axios.get(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}`, {
+      headers:{
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then(response => {
+      setPlayer(response.data); // Set the player state with fetched data
+      setLoading(false); // Update loading state
+    })
+    
       .catch(error => {
         console.error('Error fetching player data:', error);
         setLoading(false);
       });
+
   }, [playerId]);
 
   if (loading) {

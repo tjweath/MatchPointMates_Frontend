@@ -11,7 +11,12 @@ function DeletePlayer() {
   const handleDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}`);
+      const token = localStorage.getItem('access_token');
+      await axios.delete(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       setLoading(false);
       navigate('/players'); 
     } catch (error) {

@@ -10,10 +10,15 @@ function EditPlayer() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const token = localStorage.getItem('access_token');
     const fetchPlayer = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}/`);
+        const response = await axios.get(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}/`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
         setPlayer(response.data);
         setLoading(false);
       } catch (error) {
@@ -38,7 +43,12 @@ function EditPlayer() {
     console.log('Form submitted');
     setLoading(true);
     try {
-      await axios.put(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}/`, player);
+      const token = localStorage.getItem('access_token');
+      await axios.put(`${process.env.REACT_APP_BACKENDURL}/players/${playerId}/`, player, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       console.log('Player data:', player);
       setLoading(false);
       navigate(`/players/${playerId}`);
@@ -52,22 +62,23 @@ function EditPlayer() {
     return <div>Loading...</div>;
   }
 
-return (
-  <div className="container">
-    <h1>Edit Player</h1>
-    <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <label htmlFor="player_name" className="form-label">Player Name </label>
-        <input type="text" id="player_name" name="player_name" value={player.player_name || ''} onChange={handleInputChange} className="form-control" />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="player_country" className="form-label">Country </label>
-        <input type="text" id="player_country" name="player_country" value={player.player_country || ''} onChange={handleInputChange} className="form-control" />
-      </div>
-      <button type="submit" className="btn btn-primary">Save</button>
-    </form>
-  </div>
-);
+  return (
+    <div className="container">
+      <h1>Edit Player</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="player_name" className="form-label">Player Name </label>
+          <input type="text" id="player_name" name="player_name" value={player.player_name || ''} onChange={handleInputChange} className="form-control" />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="player_country" className="form-label">Country </label>
+          <input type="text" id="player_country" name="player_country" value={player.player_country || ''} onChange={handleInputChange} className="form-control" />
+        </div>
+        <button type="submit" className="btn btn-primary">Save</button>
+      </form>
+    </div>
+  );
 }
 
 export default EditPlayer;
+
