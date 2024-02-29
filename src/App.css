@@ -1,5 +1,7 @@
 .App {
   background-color: #31473a;
+  min-height: 100vh;
+  font-family: 'Montserrat', serif;
 }
 
 

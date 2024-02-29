@@ -8,7 +8,6 @@ const Home = () => {
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_BACKENDURL}/api/get_player_data/`)
             .then(response => {
-                console.log(response.data);
                 setPlayerData(response.data); 
             })
             .catch(error => {
