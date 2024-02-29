@@ -16,10 +16,8 @@ export default function Signup() {
           email: emailRef.current.value,
           password: pwdRef.current.value,
         };
-
         
         const { data } = await axios.post(
-          console.log(data)
           `${process.env.REACT_APP_BACKENDURL}/signup/`,
           user,
           {

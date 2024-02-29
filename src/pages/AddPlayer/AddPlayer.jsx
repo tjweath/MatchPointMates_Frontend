@@ -6,9 +6,9 @@ import { currentUser } from '../../lib/CurrentUser';
 export default function AddPlayer() {
   const [name, setName] = useState('');
   const [country, setCountry] = useState('');
-  const [error, setError] = useState(null);
-  const [csrfToken, setCsrfToken] = useState('');
-  const [showPopup, setShowPopup] = useState(false);
+  const [setError] = useState(null);
+  const [setCsrfToken] = useState('');
+  const [showPopup] = useState(false);
   const navigate = useNavigate();
 
   const newPlayer = {
@@ -18,7 +18,6 @@ export default function AddPlayer() {
   }
 
   useEffect(() => {
-    // Fetch CSRF token from cookies
     const getCsrfToken = async () => {
       try {
         const response = await fetch('/csrf/');
