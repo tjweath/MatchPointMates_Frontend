@@ -8,6 +8,7 @@ export default function Signup() {
     const userRef = useRef()
     const emailRef = useRef()
     const pwdRef = useRef()
+    
     async function handleSubmit(e) {
         e.preventDefault();
         const user = {
@@ -16,8 +17,9 @@ export default function Signup() {
           password: pwdRef.current.value,
         };
 
-    
-        const { } = await axios.post(
+        
+        const { data } = await axios.post(
+          console.log(data)
           `${process.env.REACT_APP_BACKENDURL}/signup/`,
           user,
           {
@@ -29,7 +31,8 @@ export default function Signup() {
         );
         window.location.href = "/players"
       }
-  return (
+  
+      return (
     <Form onSubmit={handleSubmit}>
       <h1 className='title'>🎾 Match Point Mates 🎾</h1>
       <div className="signup" >
