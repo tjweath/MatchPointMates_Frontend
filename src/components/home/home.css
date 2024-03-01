@@ -17,3 +17,13 @@
     position: relative; 
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1) !important; 
   }
+
+  .player-container {
+    display: flex;
+    justify-content: space-between; /* Adjust as needed */
+}
+
+.player {
+    flex: 1; /* Ensures equal width for both players */
+    margin: 0 10px; /* Adjust margin between players */
+}

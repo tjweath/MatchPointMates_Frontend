@@ -9,26 +9,6 @@ export default function Signup() {
     const emailRef = useRef()
     const pwdRef = useRef()
     
-    // async function handleSubmit(e) {
-    //     e.preventDefault();
-    //     const user = {
-    //       username: userRef.current.value,
-    //       email: emailRef.current.value,
-    //       password: pwdRef.current.value,
-    //     };
-        
-    //     const { data } = await axios.post(
-    //       `${process.env.REACT_APP_BACKENDURL}/signup/`,
-    //       user,
-    //       {
-    //         headers: { "Content-Type": "application/json" },
-    //       },
-    //       {
-    //         withCredentials: true,
-    //       }
-    //     );
-    //     window.location.href = "/players"
-    //   }
 
     async function handleSubmit(e) {
       e.preventDefault();
@@ -52,7 +32,6 @@ export default function Signup() {
         window.location.href = "/players";
       } catch (error) {
         console.error('Error occurred during signup:', error);
-        // Handle the error, display a message to the user, or perform other actions as needed
       }
     }
     
