@@ -14,8 +14,8 @@ const PlayerCard = ({ playerId }) => {
       }
     })
     .then(response => {
-      setPlayer(response.data); // Set the player state with fetched data
-      setLoading(false); // Update loading state
+      setPlayer(response.data);
+      setLoading(false); 
     })
     
       .catch(error => {

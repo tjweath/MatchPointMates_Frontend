@@ -29,7 +29,7 @@ export default function AddPlayer() {
       }
     };
     getCsrfToken();
-  }, [setCsrfToken]); // Added setCsrfToken to the dependency array
+  }, [setCsrfToken]);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -48,7 +48,7 @@ export default function AddPlayer() {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
-          // 'X-CSRFToken': csrfToken,
+  
         },
       });
 

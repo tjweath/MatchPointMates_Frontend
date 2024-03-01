@@ -8,8 +8,6 @@ export default function Signup() {
     const userRef = useRef()
     const emailRef = useRef()
     const pwdRef = useRef()
-    
-
     async function handleSubmit(e) {
       e.preventDefault();
       const user = {
@@ -30,6 +28,7 @@ export default function Signup() {
           }
         );
         window.location.href = "/players";
+
       } catch (error) {
         console.error('Error occurred during signup:', error);
       }

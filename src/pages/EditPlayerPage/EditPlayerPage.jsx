@@ -1,4 +1,3 @@
-// EditPlayerPage.jsx
 import React from 'react';
 import EditPlayer from '../../components/EditPlayer/EditPlayer.jsx';
 
