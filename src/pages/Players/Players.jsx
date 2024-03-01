@@ -29,10 +29,10 @@ function Players() {
       });
   };
 
-  const handleNewPlayer = (newPlayer) => {
-    // Prepend the new player to the existing list of players
-    setPlayers([newPlayer, ...players]);
-  };
+  // const handleNewPlayer = (newPlayer) => {
+  //   // Prepend the new player to the existing list of players
+  //   setPlayers([newPlayer, ...players]);
+  // };
   
 
   if (loading) {
